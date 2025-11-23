@@ -1,0 +1,20 @@
+<svg width="100%" height="100%" viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <mask id="cse-mask">
+      <!-- White rect makes the black overlay visible -->
+      <rect width="100%" height="100%" fill="white" />
+      
+      <!-- Black shapes create the transparent "holes" -->
+      <g transform="translate(150, 100)">
+        <!-- Lightning Bolt -->
+        <path d="M180 0 L80 200 L160 200 L100 400 L280 180 L200 180 L260 0 Z" fill="black" />
+        
+        <!-- CSE Text -->
+        <text x="320" y="300" font-family="Arial, sans-serif" font-weight="900" font-size="300" fill="black">CSE</text>
+      </g>
+    </mask>
+  </defs>
+  
+  <!-- The main overlay rect using the mask -->
+  <rect width="100%" height="100%" fill="black" mask="url(#cse-mask)" />
+</svg>
