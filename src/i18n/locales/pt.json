@@ -62,6 +62,159 @@
         "bookingSuccess": "Excelente! Recebemos seus dados. Um engenheiro da CodeSpark entrará em contato em breve via WhatsApp ou email.",
         "placeholderName": "Seu Nome",
         "placeholderEmail": "Seu Email",
-        "placeholderMessage": "Conte-nos sobre seu projeto..."
+        "placeholderMessage": "Conte-nos sobre seu projeto...",
+        "questions": [
+            {
+                "id": 1,
+                "text": "Qual é o estágio atual do seu negócio?",
+                "options": [
+                    "Startup (Fase de Ideia/MVP)",
+                    "Negócio em Crescimento (Escalando operações)",
+                    "Empresa Estabelecida (Otimização necessária)",
+                    "Corporação (Transformação digital)"
+                ]
+            },
+            {
+                "id": 2,
+                "text": "Qual é o seu principal desafio de negócio?",
+                "options": [
+                    "Preciso automatizar processos manuais",
+                    "Quero alcançar mais clientes online",
+                    "Lutando com gerenciamento de dados",
+                    "Preciso de melhores ferramentas de colaboração"
+                ]
+            },
+            {
+                "id": 3,
+                "text": "Qual é a sua faixa de receita mensal atual?",
+                "options": [
+                    "Pré-receita ou < $5K/mês",
+                    "$5K - $50K/mês",
+                    "$50K - $200K/mês",
+                    "$200K+/mês"
+                ]
+            },
+            {
+                "id": 4,
+                "text": "Qual é o seu orçamento de tecnologia para os próximos 6 meses?",
+                "options": [
+                    "< $10,000",
+                    "$10,000 - $50,000",
+                    "$50,000 - $150,000",
+                    "$150,000+"
+                ]
+            },
+            {
+                "id": 5,
+                "text": "Qual solução tecnológica mais lhe interessa?",
+                "options": [
+                    "Integração de IA e Machine Learning",
+                    "Infraestrutura em Nuvem e Escalabilidade",
+                    "Aplicações Web/Mobile Personalizadas",
+                    "Análise de Dados e Business Intelligence"
+                ]
+            }
+        ],
+        "analysis": {
+            "heading": "📊 Análise de Mercado e Recomendações",
+            "stage": {
+                "startup": {
+                    "bold": "Seu Estágio: Startup em fase inicial",
+                    "opportunity": "Oportunidade de Mercado: O ecossistema global de startups é avaliado em $3.8T. 90% das startups que utilizam tecnologia cedo têm taxas de sobrevivência 2.5x maiores.",
+                    "focus": "Foco Recomendado: Desenvolvimento de MVP, infraestrutura em nuvem e arquitetura escalável."
+                },
+                "growing": {
+                    "bold": "Seu Estágio: Fase de crescimento",
+                    "opportunity": "Oportunidade de Mercado: Empresas em fase de crescimento que investem em automação veem redução de 40% nos custos operacionais e escalam 3x mais rápido.",
+                    "focus": "Foco Recomendado: Automação de processos, integrações de API e otimização de desempenho."
+                },
+                "established": {
+                    "bold": "Seu Estágio: Negócio estabelecido",
+                    "opportunity": "Oportunidade de Mercado: 78% das empresas estabelecidas relatam que a otimização digital aumentou a receita em 25-40% em 12 meses.",
+                    "focus": "Foco Recomendado: Modernização de sistemas, integração de IA e análise de dados."
+                },
+                "enterprise": {
+                    "bold": "Seu Estágio: Nível corporativo",
+                    "opportunity": "Oportunidade de Mercado: O mercado de transformação digital é de $2.3T e cresce 22% anualmente. Corporações veem ROI médio de 300% em 2 anos.",
+                    "focus": "Foco Recomendado: Migração para nuvem, IA/ML em escala e arquitetura corporativa."
+                }
+            },
+            "opportunities": {
+                "heading": "🎯 Oportunidades Específicas para Seu Desafio",
+                "automate": {
+                    "roi": "ROI de Automação: Empresas economizam $50K-$500K anualmente através da automação de processos",
+                    "wins": "Ganhos Rápidos: RPA (Automação Robótica de Processos) pode automatizar 60-80% das tarefas repetitivas",
+                    "timeline": "Cronograma: Veja resultados em 2-3 meses"
+                },
+                "customers": {
+                    "impact": "Impacto do Marketing Digital: Negócios com forte presença online veem 2.8x mais leads",
+                    "growth": "Crescimento do E-commerce: Vendas online crescendo 15% ao ano globalmente",
+                    "recommendation": "Recomendação: Plataforma web personalizada + SEO + analytics"
+                },
+                "data": {
+                    "decisions": "Decisões Baseadas em Dados: Empresas que usam analytics têm 5x mais chances de tomar decisões mais rápidas",
+                    "market": "Tamanho do Mercado: Mercado de Business Intelligence é de $27B e crescendo",
+                    "solution": "Solução: Data warehouse em nuvem + dashboards de BI + análise preditiva"
+                },
+                "collaboration": {
+                    "gains": "Ganhos de Produtividade: Ferramentas modernas de colaboração aumentam a produtividade da equipe em 30%",
+                    "remote": "Trabalho Remoto: 74% das empresas planejam adotar permanentemente o trabalho híbrido",
+                    "solution": "Solução: Plataforma de colaboração personalizada + integrações + apps móveis"
+                }
+            },
+            "budget": {
+                "heading": "💰 Estratégia de Investimento para Seu Orçamento",
+                "tier1": {
+                    "phase": "Fase 1 (Meses 1-3): Desenvolvimento de MVP, recursos principais, configuração de nuvem",
+                    "roi": "ROI Esperado: 150-200% em 6 meses",
+                    "approach": "Melhor Abordagem: Desenvolvimento ágil com lançamentos quinzenais"
+                },
+                "tier2": {
+                    "phase1": "Fase 1: Desenvolvimento completo do produto + integrações",
+                    "phase2": "Fase 2: Automação de marketing + analytics",
+                    "roi": "ROI Esperado: 250-350% em 12 meses"
+                },
+                "tier3": {
+                    "solution": "Solução Abrangente: Plataforma personalizada + recursos de IA + apps móveis",
+                    "roi": "ROI Esperado: 400-600% em 18 meses",
+                    "includes": "Inclui: Equipe dedicada, suporte contínuo, planejamento de escalabilidade"
+                },
+                "tier4": {
+                    "package": "Pacote Corporativo: Transformação digital completa",
+                    "roi": "ROI Esperado: 500-800% em 24 meses",
+                    "includes": "Inclui: Arquitetura personalizada, integração de IA/ML, suporte 24/7, equipe dedicada"
+                }
+            },
+            "tech": {
+                "heading": "🚀 Recomendação Tecnológica",
+                "ai": {
+                    "market": "Mercado de IA/ML: Indústria de $190B, crescimento anual de 38%",
+                    "cases": "Casos de Uso: Análise preditiva, insights de clientes, automação, chatbots",
+                    "timeline": "Cronograma de ROI: 6-12 meses para impacto mensurável"
+                },
+                "cloud": {
+                    "market": "Mercado de Nuvem: Indústria de $500B, empresas economizam 30-40% em infraestrutura",
+                    "benefits": "Benefícios: 99.9% de uptime, escalabilidade infinita, pague-pelo-uso",
+                    "timeline": "Cronograma de Migração: 2-4 meses para migração completa"
+                },
+                "web": {
+                    "mobile": "Mobile-First: 60% do tráfego web é móvel, apps aumentam o engajamento em 3x",
+                    "pwa": "Vantagem PWA: Progressive Web Apps combinam benefícios web + mobile",
+                    "timeline": "Cronograma de Desenvolvimento: 3-6 meses para app completo"
+                },
+                "data": {
+                    "roi": "ROI de Analytics: Empresas orientadas a dados têm 23x mais chances de adquirir clientes",
+                    "insights": "Insights em Tempo Real: Tome decisões 5x mais rápido com dashboards ao vivo",
+                    "implementation": "Implementação: 2-3 meses para solução completa de BI"
+                }
+            },
+            "nextSteps": {
+                "heading": "✅ Próximos Passos",
+                "consultation": "Consulta Gratuita: Chamada estratégica de 30 min com nossos especialistas em tecnologia",
+                "proposal": "Proposta Personalizada: Roteiro detalhado e preços para suas necessidades específicas",
+                "poc": "Prova de Conceito: Teste opcional de 2 semanas para validar a solução",
+                "cta": "Pronto para transformar seu negócio? Agende sua consulta gratuita abaixo!"
+            }
+        }
     }
 }

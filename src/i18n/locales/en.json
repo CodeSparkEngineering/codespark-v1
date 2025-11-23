@@ -62,6 +62,159 @@
         "bookingSuccess": "Excellent! We've received your details. A CodeSpark engineer will contact you shortly via WhatsApp or email.",
         "placeholderName": "Your Name",
         "placeholderEmail": "Your Email",
-        "placeholderMessage": "Tell us about your project..."
+        "placeholderMessage": "Tell us about your project...",
+        "questions": [
+            {
+                "id": 1,
+                "text": "What is your current business stage?",
+                "options": [
+                    "Startup (Idea/MVP stage)",
+                    "Growing Business (Scaling operations)",
+                    "Established Company (Optimization needed)",
+                    "Enterprise (Digital transformation)"
+                ]
+            },
+            {
+                "id": 2,
+                "text": "What is your primary business challenge?",
+                "options": [
+                    "Need to automate manual processes",
+                    "Want to reach more customers online",
+                    "Struggling with data management",
+                    "Need better team collaboration tools"
+                ]
+            },
+            {
+                "id": 3,
+                "text": "What's your current monthly revenue range?",
+                "options": [
+                    "Pre-revenue or < $5K/month",
+                    "$5K - $50K/month",
+                    "$50K - $200K/month",
+                    "$200K+/month"
+                ]
+            },
+            {
+                "id": 4,
+                "text": "What's your technology budget for the next 6 months?",
+                "options": [
+                    "< $10,000",
+                    "$10,000 - $50,000",
+                    "$50,000 - $150,000",
+                    "$150,000+"
+                ]
+            },
+            {
+                "id": 5,
+                "text": "Which technology solution interests you most?",
+                "options": [
+                    "AI & Machine Learning Integration",
+                    "Cloud Infrastructure & Scalability",
+                    "Custom Web/Mobile Applications",
+                    "Data Analytics & Business Intelligence"
+                ]
+            }
+        ],
+        "analysis": {
+            "heading": "📊 Market Analysis & Recommendations",
+            "stage": {
+                "startup": {
+                    "bold": "Your Stage: Early-stage startup",
+                    "opportunity": "Market Opportunity: The global startup ecosystem is valued at $3.8T. 90% of startups that leverage technology early have 2.5x higher survival rates.",
+                    "focus": "Recommended Focus: MVP development, cloud infrastructure, and scalable architecture."
+                },
+                "growing": {
+                    "bold": "Your Stage: Growth phase",
+                    "opportunity": "Market Opportunity: Companies in growth phase that invest in automation see 40% reduction in operational costs and 3x faster scaling.",
+                    "focus": "Recommended Focus: Process automation, API integrations, and performance optimization."
+                },
+                "established": {
+                    "bold": "Your Stage: Established business",
+                    "opportunity": "Market Opportunity: 78% of established companies report that digital optimization increased revenue by 25-40% within 12 months.",
+                    "focus": "Recommended Focus: System modernization, AI integration, and data analytics."
+                },
+                "enterprise": {
+                    "bold": "Your Stage: Enterprise level",
+                    "opportunity": "Market Opportunity: Digital transformation market is $2.3T and growing 22% annually. Enterprises see average ROI of 300% within 2 years.",
+                    "focus": "Recommended Focus: Cloud migration, AI/ML at scale, and enterprise architecture."
+                }
+            },
+            "opportunities": {
+                "heading": "🎯 Specific Opportunities for Your Challenge",
+                "automate": {
+                    "roi": "Automation ROI: Companies save $50K-$500K annually through process automation",
+                    "wins": "Quick Wins: RPA (Robotic Process Automation) can automate 60-80% of repetitive tasks",
+                    "timeline": "Timeline: See results in 2-3 months"
+                },
+                "customers": {
+                    "impact": "Digital Marketing Impact: Businesses with strong online presence see 2.8x more leads",
+                    "growth": "E-commerce Growth: Online sales growing 15% YoY globally",
+                    "recommendation": "Recommendation: Custom web platform + SEO + analytics"
+                },
+                "data": {
+                    "decisions": "Data-Driven Decisions: Companies using analytics are 5x more likely to make faster decisions",
+                    "market": "Market Size: Business Intelligence market is $27B and growing",
+                    "solution": "Solution: Cloud data warehouse + BI dashboards + predictive analytics"
+                },
+                "collaboration": {
+                    "gains": "Productivity Gains: Modern collaboration tools increase team productivity by 30%",
+                    "remote": "Remote Work: 74% of companies plan to permanently adopt hybrid work",
+                    "solution": "Solution: Custom collaboration platform + integrations + mobile apps"
+                }
+            },
+            "budget": {
+                "heading": "💰 Investment Strategy for Your Budget",
+                "tier1": {
+                    "phase": "Phase 1 (Months 1-3): MVP development, core features, cloud setup",
+                    "roi": "Expected ROI: 150-200% within 6 months",
+                    "approach": "Best Approach: Agile development with bi-weekly releases"
+                },
+                "tier2": {
+                    "phase1": "Phase 1: Full product development + integrations",
+                    "phase2": "Phase 2: Marketing automation + analytics",
+                    "roi": "Expected ROI: 250-350% within 12 months"
+                },
+                "tier3": {
+                    "solution": "Comprehensive Solution: Custom platform + AI features + mobile apps",
+                    "roi": "Expected ROI: 400-600% within 18 months",
+                    "includes": "Includes: Dedicated team, ongoing support, scalability planning"
+                },
+                "tier4": {
+                    "package": "Enterprise Package: Full digital transformation",
+                    "roi": "Expected ROI: 500-800% within 24 months",
+                    "includes": "Includes: Custom architecture, AI/ML integration, 24/7 support, dedicated team"
+                }
+            },
+            "tech": {
+                "heading": "🚀 Technology Recommendation",
+                "ai": {
+                    "market": "AI/ML Market: $190B industry, 38% annual growth",
+                    "cases": "Use Cases: Predictive analytics, customer insights, automation, chatbots",
+                    "timeline": "ROI Timeline: 6-12 months for measurable impact"
+                },
+                "cloud": {
+                    "market": "Cloud Market: $500B industry, companies save 30-40% on infrastructure",
+                    "benefits": "Benefits: 99.9% uptime, infinite scalability, pay-as-you-go",
+                    "timeline": "Migration Timeline: 2-4 months for full migration"
+                },
+                "web": {
+                    "mobile": "Mobile-First: 60% of web traffic is mobile, apps increase engagement 3x",
+                    "pwa": "PWA Advantage: Progressive Web Apps combine web + mobile benefits",
+                    "timeline": "Development Timeline: 3-6 months for full-featured app"
+                },
+                "data": {
+                    "roi": "Analytics ROI: Data-driven companies are 23x more likely to acquire customers",
+                    "insights": "Real-time Insights: Make decisions 5x faster with live dashboards",
+                    "implementation": "Implementation: 2-3 months for complete BI solution"
+                }
+            },
+            "nextSteps": {
+                "heading": "✅ Next Steps",
+                "consultation": "Free Consultation: 30-min strategy call with our tech experts",
+                "proposal": "Custom Proposal: Detailed roadmap and pricing for your specific needs",
+                "poc": "Proof of Concept: Optional 2-week trial to validate the solution",
+                "cta": "Ready to transform your business? Book your free consultation below!"
+            }
+        }
     }
 }

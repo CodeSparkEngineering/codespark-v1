@@ -2,7 +2,13 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 
 const ClientQuiz = () => {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
+
+    // Memoize questions to prevent infinite loops due to new array references
+    const questions = React.useMemo(() => {
+        return t('quiz.questions', { returnObjects: true });
+    }, [t, i18n.language]);
+
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [answers, setAnswers] = useState({});
     const [history, setHistory] = useState([
@@ -14,157 +20,103 @@ const ClientQuiz = () => {
     const [formSubmitted, setFormSubmitted] = useState(false);
     const chatContainerRef = useRef(null);
 
-    const questions = [
-        {
-            id: 1,
-            text: "What is your current business stage?",
-            options: [
-                "Startup (Idea/MVP stage)",
-                "Growing Business (Scaling operations)",
-                "Established Company (Optimization needed)",
-                "Enterprise (Digital transformation)"
-            ]
-        },
-        {
-            id: 2,
-            text: "What is your primary business challenge?",
-            options: [
-                "Need to automate manual processes",
-                "Want to reach more customers online",
-                "Struggling with data management",
-                "Need better team collaboration tools"
-            ]
-        },
-        {
-            id: 3,
-            text: "What's your current monthly revenue range?",
-            options: [
-                "Pre-revenue or < $5K/month",
-                "$5K - $50K/month",
-                "$50K - $200K/month",
-                "$200K+/month"
-            ]
-        },
-        {
-            id: 4,
-            text: "What's your technology budget for the next 6 months?",
-            options: [
-                "< $10,000",
-                "$10,000 - $50,000",
-                "$50,000 - $150,000",
-                "$150,000+"
-            ]
-        },
-        {
-            id: 5,
-            text: "Which technology solution interests you most?",
-            options: [
-                "AI & Machine Learning Integration",
-                "Cloud Infrastructure & Scalability",
-                "Custom Web/Mobile Applications",
-                "Data Analytics & Business Intelligence"
-            ]
-        }
-    ];
-
     const generateMarketAnalysis = () => {
-        const stage = answers[1];
-        const challenge = answers[2];
-        const revenue = answers[3];
-        const budget = answers[4];
-        const interest = answers[5];
+        const stageIdx = answers[1];
+        const challengeIdx = answers[2];
+        const budgetIdx = answers[4];
+        const interestIdx = answers[5];
 
         let analysis = [];
 
         // Stage-based analysis
-        analysis.push({ type: 'heading', text: '📊 Market Analysis & Recommendations' });
+        analysis.push({ type: 'heading', text: t('quiz.analysis.heading') });
 
-        if (stage?.includes("Startup")) {
-            analysis.push({ type: 'bold', text: 'Your Stage: Early-stage startup' });
-            analysis.push({ type: 'text', text: 'Market Opportunity: The global startup ecosystem is valued at $3.8T. 90% of startups that leverage technology early have 2.5x higher survival rates.' });
-            analysis.push({ type: 'text', text: 'Recommended Focus: MVP development, cloud infrastructure, and scalable architecture.' });
-        } else if (stage?.includes("Growing")) {
-            analysis.push({ type: 'bold', text: 'Your Stage: Growth phase' });
-            analysis.push({ type: 'text', text: 'Market Opportunity: Companies in growth phase that invest in automation see 40% reduction in operational costs and 3x faster scaling.' });
-            analysis.push({ type: 'text', text: 'Recommended Focus: Process automation, API integrations, and performance optimization.' });
-        } else if (stage?.includes("Established")) {
-            analysis.push({ type: 'bold', text: 'Your Stage: Established business' });
-            analysis.push({ type: 'text', text: 'Market Opportunity: 78% of established companies report that digital optimization increased revenue by 25-40% within 12 months.' });
-            analysis.push({ type: 'text', text: 'Recommended Focus: System modernization, AI integration, and data analytics.' });
-        } else if (stage?.includes("Enterprise")) {
-            analysis.push({ type: 'bold', text: 'Your Stage: Enterprise level' });
-            analysis.push({ type: 'text', text: 'Market Opportunity: Digital transformation market is $2.3T and growing 22% annually. Enterprises see average ROI of 300% within 2 years.' });
-            analysis.push({ type: 'text', text: 'Recommended Focus: Cloud migration, AI/ML at scale, and enterprise architecture.' });
+        if (stageIdx === 0) { // Startup
+            analysis.push({ type: 'bold', text: t('quiz.analysis.stage.startup.bold') });
+            analysis.push({ type: 'text', text: t('quiz.analysis.stage.startup.opportunity') });
+            analysis.push({ type: 'text', text: t('quiz.analysis.stage.startup.focus') });
+        } else if (stageIdx === 1) { // Growing
+            analysis.push({ type: 'bold', text: t('quiz.analysis.stage.growing.bold') });
+            analysis.push({ type: 'text', text: t('quiz.analysis.stage.growing.opportunity') });
+            analysis.push({ type: 'text', text: t('quiz.analysis.stage.growing.focus') });
+        } else if (stageIdx === 2) { // Established
+            analysis.push({ type: 'bold', text: t('quiz.analysis.stage.established.bold') });
+            analysis.push({ type: 'text', text: t('quiz.analysis.stage.established.opportunity') });
+            analysis.push({ type: 'text', text: t('quiz.analysis.stage.established.focus') });
+        } else if (stageIdx === 3) { // Enterprise
+            analysis.push({ type: 'bold', text: t('quiz.analysis.stage.enterprise.bold') });
+            analysis.push({ type: 'text', text: t('quiz.analysis.stage.enterprise.opportunity') });
+            analysis.push({ type: 'text', text: t('quiz.analysis.stage.enterprise.focus') });
         }
 
         // Challenge-based opportunities
-        analysis.push({ type: 'subheading', text: '🎯 Specific Opportunities for Your Challenge' });
+        analysis.push({ type: 'subheading', text: t('quiz.analysis.opportunities.heading') });
 
-        if (challenge?.includes("automate")) {
-            analysis.push({ type: 'list', text: 'Automation ROI: Companies save $50K-$500K annually through process automation' });
-            analysis.push({ type: 'list', text: 'Quick Wins: RPA (Robotic Process Automation) can automate 60-80% of repetitive tasks' });
-            analysis.push({ type: 'list', text: 'Timeline: See results in 2-3 months' });
-        } else if (challenge?.includes("customers")) {
-            analysis.push({ type: 'list', text: 'Digital Marketing Impact: Businesses with strong online presence see 2.8x more leads' });
-            analysis.push({ type: 'list', text: 'E-commerce Growth: Online sales growing 15% YoY globally' });
-            analysis.push({ type: 'list', text: 'Recommendation: Custom web platform + SEO + analytics' });
-        } else if (challenge?.includes("data")) {
-            analysis.push({ type: 'list', text: 'Data-Driven Decisions: Companies using analytics are 5x more likely to make faster decisions' });
-            analysis.push({ type: 'list', text: 'Market Size: Business Intelligence market is $27B and growing' });
-            analysis.push({ type: 'list', text: 'Solution: Cloud data warehouse + BI dashboards + predictive analytics' });
-        } else if (challenge?.includes("collaboration")) {
-            analysis.push({ type: 'list', text: 'Productivity Gains: Modern collaboration tools increase team productivity by 30%' });
-            analysis.push({ type: 'list', text: 'Remote Work: 74% of companies plan to permanently adopt hybrid work' });
-            analysis.push({ type: 'list', text: 'Solution: Custom collaboration platform + integrations + mobile apps' });
+        if (challengeIdx === 0) { // Automate
+            analysis.push({ type: 'list', text: t('quiz.analysis.opportunities.automate.roi') });
+            analysis.push({ type: 'list', text: t('quiz.analysis.opportunities.automate.wins') });
+            analysis.push({ type: 'list', text: t('quiz.analysis.opportunities.automate.timeline') });
+        } else if (challengeIdx === 1) { // Customers
+            analysis.push({ type: 'list', text: t('quiz.analysis.opportunities.customers.impact') });
+            analysis.push({ type: 'list', text: t('quiz.analysis.opportunities.customers.growth') });
+            analysis.push({ type: 'list', text: t('quiz.analysis.opportunities.customers.recommendation') });
+        } else if (challengeIdx === 2) { // Data
+            analysis.push({ type: 'list', text: t('quiz.analysis.opportunities.data.decisions') });
+            analysis.push({ type: 'list', text: t('quiz.analysis.opportunities.data.market') });
+            analysis.push({ type: 'list', text: t('quiz.analysis.opportunities.data.solution') });
+        } else if (challengeIdx === 3) { // Collaboration
+            analysis.push({ type: 'list', text: t('quiz.analysis.opportunities.collaboration.gains') });
+            analysis.push({ type: 'list', text: t('quiz.analysis.opportunities.collaboration.remote') });
+            analysis.push({ type: 'list', text: t('quiz.analysis.opportunities.collaboration.solution') });
         }
 
         // Budget-based recommendations
-        analysis.push({ type: 'subheading', text: '💰 Investment Strategy for Your Budget' });
+        analysis.push({ type: 'subheading', text: t('quiz.analysis.budget.heading') });
 
-        if (budget?.includes("< $10,000")) {
-            analysis.push({ type: 'bold', text: 'Phase 1 (Months 1-3): MVP development, core features, cloud setup' });
-            analysis.push({ type: 'text', text: 'Expected ROI: 150-200% within 6 months' });
-            analysis.push({ type: 'text', text: 'Best Approach: Agile development with bi-weekly releases' });
-        } else if (budget?.includes("$10,000 - $50,000")) {
-            analysis.push({ type: 'bold', text: 'Phase 1: Full product development + integrations' });
-            analysis.push({ type: 'bold', text: 'Phase 2: Marketing automation + analytics' });
-            analysis.push({ type: 'text', text: 'Expected ROI: 250-350% within 12 months' });
-        } else if (budget?.includes("$50,000 - $150,000")) {
-            analysis.push({ type: 'bold', text: 'Comprehensive Solution: Custom platform + AI features + mobile apps' });
-            analysis.push({ type: 'text', text: 'Expected ROI: 400-600% within 18 months' });
-            analysis.push({ type: 'text', text: 'Includes: Dedicated team, ongoing support, scalability planning' });
-        } else {
-            analysis.push({ type: 'bold', text: 'Enterprise Package: Full digital transformation' });
-            analysis.push({ type: 'text', text: 'Expected ROI: 500-800% within 24 months' });
-            analysis.push({ type: 'text', text: 'Includes: Custom architecture, AI/ML integration, 24/7 support, dedicated team' });
+        if (budgetIdx === 0) { // < 10k
+            analysis.push({ type: 'bold', text: t('quiz.analysis.budget.tier1.phase') });
+            analysis.push({ type: 'text', text: t('quiz.analysis.budget.tier1.roi') });
+            analysis.push({ type: 'text', text: t('quiz.analysis.budget.tier1.approach') });
+        } else if (budgetIdx === 1) { // 10-50k
+            analysis.push({ type: 'bold', text: t('quiz.analysis.budget.tier2.phase1') });
+            analysis.push({ type: 'bold', text: t('quiz.analysis.budget.tier2.phase2') });
+            analysis.push({ type: 'text', text: t('quiz.analysis.budget.tier2.roi') });
+        } else if (budgetIdx === 2) { // 50-150k
+            analysis.push({ type: 'bold', text: t('quiz.analysis.budget.tier3.solution') });
+            analysis.push({ type: 'text', text: t('quiz.analysis.budget.tier3.roi') });
+            analysis.push({ type: 'text', text: t('quiz.analysis.budget.tier3.includes') });
+        } else { // 150k+
+            analysis.push({ type: 'bold', text: t('quiz.analysis.budget.tier4.package') });
+            analysis.push({ type: 'text', text: t('quiz.analysis.budget.tier4.roi') });
+            analysis.push({ type: 'text', text: t('quiz.analysis.budget.tier4.includes') });
         }
 
         // Technology-specific insights
-        analysis.push({ type: 'subheading', text: '🚀 Technology Recommendation' });
+        analysis.push({ type: 'subheading', text: t('quiz.analysis.tech.heading') });
 
-        if (interest?.includes("AI")) {
-            analysis.push({ type: 'bold', text: 'AI/ML Market: $190B industry, 38% annual growth' });
-            analysis.push({ type: 'text', text: 'Use Cases: Predictive analytics, customer insights, automation, chatbots' });
-            analysis.push({ type: 'text', text: 'ROI Timeline: 6-12 months for measurable impact' });
-        } else if (interest?.includes("Cloud")) {
-            analysis.push({ type: 'bold', text: 'Cloud Market: $500B industry, companies save 30-40% on infrastructure' });
-            analysis.push({ type: 'text', text: 'Benefits: 99.9% uptime, infinite scalability, pay-as-you-go' });
-            analysis.push({ type: 'text', text: 'Migration Timeline: 2-4 months for full migration' });
-        } else if (interest?.includes("Web/Mobile")) {
-            analysis.push({ type: 'bold', text: 'Mobile-First: 60% of web traffic is mobile, apps increase engagement 3x' });
-            analysis.push({ type: 'text', text: 'PWA Advantage: Progressive Web Apps combine web + mobile benefits' });
-            analysis.push({ type: 'text', text: 'Development Timeline: 3-6 months for full-featured app' });
-        } else if (interest?.includes("Data Analytics")) {
-            analysis.push({ type: 'bold', text: 'Analytics ROI: Data-driven companies are 23x more likely to acquire customers' });
-            analysis.push({ type: 'text', text: 'Real-time Insights: Make decisions 5x faster with live dashboards' });
-            analysis.push({ type: 'text', text: 'Implementation: 2-3 months for complete BI solution' });
+        if (interestIdx === 0) { // AI
+            analysis.push({ type: 'bold', text: t('quiz.analysis.tech.ai.market') });
+            analysis.push({ type: 'text', text: t('quiz.analysis.tech.ai.cases') });
+            analysis.push({ type: 'text', text: t('quiz.analysis.tech.ai.timeline') });
+        } else if (interestIdx === 1) { // Cloud
+            analysis.push({ type: 'bold', text: t('quiz.analysis.tech.cloud.market') });
+            analysis.push({ type: 'text', text: t('quiz.analysis.tech.cloud.benefits') });
+            analysis.push({ type: 'text', text: t('quiz.analysis.tech.cloud.timeline') });
+        } else if (interestIdx === 2) { // Web/Mobile
+            analysis.push({ type: 'bold', text: t('quiz.analysis.tech.web.mobile') });
+            analysis.push({ type: 'text', text: t('quiz.analysis.tech.web.pwa') });
+            analysis.push({ type: 'text', text: t('quiz.analysis.tech.web.timeline') });
+        } else if (interestIdx === 3) { // Data
+            analysis.push({ type: 'bold', text: t('quiz.analysis.tech.data.roi') });
+            analysis.push({ type: 'text', text: t('quiz.analysis.tech.data.insights') });
+            analysis.push({ type: 'text', text: t('quiz.analysis.tech.data.implementation') });
         }
 
-        analysis.push({ type: 'subheading', text: '✅ Next Steps' });
-        analysis.push({ type: 'list', text: 'Free Consultation: 30-min strategy call with our tech experts' });
-        analysis.push({ type: 'list', text: 'Custom Proposal: Detailed roadmap and pricing for your specific needs' });
-        analysis.push({ type: 'list', text: 'Proof of Concept: Optional 2-week trial to validate the solution' });
-        analysis.push({ type: 'bold', text: 'Ready to transform your business? Book your free consultation below!' });
+        analysis.push({ type: 'subheading', text: t('quiz.analysis.nextSteps.heading') });
+        analysis.push({ type: 'list', text: t('quiz.analysis.nextSteps.consultation') });
+        analysis.push({ type: 'list', text: t('quiz.analysis.nextSteps.proposal') });
+        analysis.push({ type: 'list', text: t('quiz.analysis.nextSteps.poc') });
+        analysis.push({ type: 'bold', text: t('quiz.analysis.nextSteps.cta') });
 
         return analysis;
     };
@@ -180,30 +132,54 @@ const ClientQuiz = () => {
     }, [history, isTyping, showBooking, formSubmitted]);
 
     useEffect(() => {
-        if (currentQuestion < questions.length) {
+        if (questions && currentQuestion < questions.length) {
+            // Prevent adding the same question multiple times
+            const lastMsg = history[history.length - 1];
+            const nextQuestionText = questions[currentQuestion].text;
+
+            // If the last message is already the current question, don't do anything
+            if (lastMsg && lastMsg.type === 'ai' && lastMsg.text === nextQuestionText) {
+                return;
+            }
+
             setIsTyping(true);
             const timer = setTimeout(() => {
                 setIsTyping(false);
-                setHistory(prev => [...prev, { type: 'ai', text: questions[currentQuestion].text }]);
+                setHistory(prev => {
+                    // Double check inside the setter to be absolutely sure
+                    const last = prev[prev.length - 1];
+                    if (last && last.type === 'ai' && last.text === nextQuestionText) {
+                        return prev;
+                    }
+                    return [...prev, { type: 'ai', text: nextQuestionText }];
+                });
             }, 1000);
             return () => clearTimeout(timer);
-        } else if (currentQuestion === questions.length && Object.keys(answers).length === questions.length) {
+        } else if (questions && currentQuestion === questions.length && Object.keys(answers).length === questions.length) {
             // All questions answered, generate analysis
+            // Prevent generating analysis multiple times
+            const lastMsg = history[history.length - 1];
+            if (lastMsg && lastMsg.analysis) return;
+
             setIsTyping(true);
             const timer = setTimeout(() => {
                 setIsTyping(false);
                 const analysis = generateMarketAnalysis();
-                setHistory(prev => [...prev, { type: 'ai', analysis: analysis }]);
+                setHistory(prev => {
+                    const last = prev[prev.length - 1];
+                    if (last && last.analysis) return prev;
+                    return [...prev, { type: 'ai', analysis: analysis }];
+                });
                 setTimeout(() => {
                     setShowBooking(true);
                 }, 1000);
             }, 1500);
             return () => clearTimeout(timer);
         }
-    }, [currentQuestion, answers]);
+    }, [currentQuestion, answers, questions]);
 
-    const handleOptionClick = (option) => {
-        setAnswers(prev => ({ ...prev, [currentQuestion + 1]: option }));
+    const handleOptionClick = (option, index) => {
+        setAnswers(prev => ({ ...prev, [currentQuestion + 1]: index }));
         setHistory(prev => [...prev, { type: 'user', text: option }]);
         setCurrentQuestion(prev => prev + 1);
     };
@@ -313,13 +289,13 @@ const ClientQuiz = () => {
             </div>
 
             {/* Options */}
-            {currentQuestion < questions.length && !isTyping && (
+            {questions && currentQuestion < questions.length && !isTyping && (
                 <div className="p-4 border-t border-white/10 bg-black/80">
                     <div className="grid grid-cols-1 gap-2">
                         {questions[currentQuestion].options.map((option, index) => (
                             <button
                                 key={index}
-                                onClick={() => handleOptionClick(option)}
+                                onClick={() => handleOptionClick(option, index)}
                                 className="px-4 py-3 bg-neutral-900/50 hover:bg-neutral-800 border border-neutral-700 hover:border-neutral-600 rounded text-gray-300 hover:text-white text-sm text-left transition-all font-mono"
                             >
                                 <span className="text-green-500 mr-2">›</span>{option}
