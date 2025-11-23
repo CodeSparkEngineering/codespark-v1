@@ -1,8 +1,10 @@
 import { useMediaQuery } from "react-responsive";
 import { useGSAP } from "@gsap/react";
 import gsap from 'gsap';
+import { useTranslation } from 'react-i18next';
 
 const Showcase = () => {
+    const { t } = useTranslation();
     const isTablet = useMediaQuery({ query: '(max-width: 1024px)' });
 
     useGSAP(() => {
@@ -36,36 +38,36 @@ const Showcase = () => {
             <div className="content">
                 <div className="wrapper">
                     <div className="lg:max-w-md">
-                        <h2>Innovative Solutions</h2>
+                        <h2>{t('showcase.heading')}</h2>
 
                         <div className="space-y-5 mt-7 pe-10">
                             <p>
-                                Introducing {" "}
+                                {t('showcase.intro')}{" "}
                                 <span className="text-white">
-                                    CodeSpark Engineering
+                                    {t('showcase.company')}
                                 </span>
-                                . We build
+                                {t('showcase.weBuild')}
                             </p>
                             <p>
-                                Scalable, high-performance software solutions tailored to your business needs. From cloud architecture to AI integration, we deliver excellence.
+                                {t('showcase.description1')}
                             </p>
                             <p>
-                                Our team of expert engineers ensures that every line of code contributes to a robust, secure, and efficient system that drives your success.
+                                {t('showcase.description2')}
                             </p>
-                            <p className="text-primary">Learn more about our services</p>
+                            <p className="text-primary">{t('showcase.learnMore')}</p>
                         </div>
                     </div>
 
                     <div className="max-w-3xs space-y-14">
                         <div className="space-y-2">
-                            <p>Up to</p>
-                            <h3>10x faster</h3>
-                            <p>development cycles with our agile process</p>
+                            <p>{t('showcase.metric1Label')}</p>
+                            <h3>{t('showcase.metric1Value')}</h3>
+                            <p>{t('showcase.metric1Description')}</p>
                         </div>
                         <div className="space-y-2">
-                            <p>Guaranteed</p>
-                            <h3>99.9% uptime</h3>
-                            <p>for your critical applications</p>
+                            <p>{t('showcase.metric2Label')}</p>
+                            <h3>{t('showcase.metric2Value')}</h3>
+                            <p>{t('showcase.metric2Description')}</p>
                         </div>
                     </div>
                 </div>

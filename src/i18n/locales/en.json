@@ -1,0 +1,67 @@
+{
+    "nav": {
+        "services": "Services",
+        "projects": "Projects",
+        "about": "About",
+        "contact": "Contact"
+    },
+    "hero": {
+        "title": "CodeSpark Engineering",
+        "subtitle": "Built for Engineering Excellence.",
+        "cta": "Contact Us",
+        "tagline": "Building the future of software."
+    },
+    "codeTerminal": {
+        "title": "Our Services",
+        "subtitle": "Cutting-edge solutions powered by modern technology",
+        "services": {
+            "gcloud": "> Initializing Google Cloud Services...",
+            "websites": "> Deploying Scalable Websites...",
+            "architecture": "> Optimizing System Architecture...",
+            "ai": "> Training AI Models...",
+            "ready": "> CodeSpark Engineering Ready."
+        }
+    },
+    "features": {
+        "title": "Experience the difference.",
+        "loading": "Loading..."
+    },
+    "footer": {
+        "tagline": "Digital engineering excellence.",
+        "contactPrefix": "Ready to start your project? Contact us at",
+        "contactOr": "or via",
+        "whatsapp": "WhatsApp",
+        "copyright": "Copyright © 2025 CodeSpark Engineering. All rights reserved.",
+        "founder": "Founder: Israel Vieira"
+    },
+    "highlights": {
+        "title": "Explore our services.",
+        "subtitle": "Interactive neural network of CodeSpark Engineering capabilities."
+    },
+    "showcase": {
+        "heading": "Innovative Solutions",
+        "intro": "Introducing",
+        "company": "CodeSpark Engineering",
+        "weBuild": ". We build",
+        "description1": "Scalable, high-performance software solutions tailored to your business needs. From cloud architecture to AI integration, we deliver excellence.",
+        "description2": "Our team of expert engineers ensures that every line of code contributes to a robust, secure, and efficient system that drives your success.",
+        "learnMore": "Learn more about our services",
+        "metric1Label": "Up to",
+        "metric1Value": "10x faster",
+        "metric1Description": "development cycles with our agile process",
+        "metric2Label": "Guaranteed",
+        "metric2Value": "99.9% uptime",
+        "metric2Description": "for your critical applications"
+    },
+    "quiz": {
+        "aiName": "CodeSpark AI Assistant",
+        "welcome": "Hello! I'm CodeSpark AI Assistant. I'll help you discover the best technology solutions for your business. Let's start with a few questions to understand your needs.",
+        "typing": "AI is typing...",
+        "bookingTitle": "Book Your Free Consultation",
+        "bookingSubmit": "Schedule Consultation",
+        "bookingSuccess": "Excellent! We've received your details. A CodeSpark engineer will contact you shortly via WhatsApp or email.",
+        "placeholderName": "Your Name",
+        "placeholderEmail": "Your Email",
+        "placeholderMessage": "Tell us about your project..."
+    }
+}

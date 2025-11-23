@@ -18,31 +18,15 @@ fi
 echo "📋 Setting Project ID to: $PROJECT_ID"
 $GCLOUD config set project $PROJECT_ID
 
-# Bucket Name Input Loop
-while true; do
-    echo ""
-    echo "📦 Enter a unique name for your website bucket (lowercase only, e.g., codespark-israel-v1):"
-    read BUCKET_NAME
-    
-    if [[ -z "$BUCKET_NAME" ]]; then
-        echo "❌ Bucket name cannot be empty. Please try again."
-        continue
-    fi
-
-    if [[ "$BUCKET_NAME" =~ [A-Z] ]]; then
-        echo "❌ Bucket name must be ALL LOWERCASE. Please try again."
-        continue
-    fi
-    
-    break
-done
+# Bucket Name
+BUCKET_NAME="codespark-israel-eu"
 
 echo "📝 Using bucket name: $BUCKET_NAME"
 echo "----------------------------------------"
 
 # Create Bucket
 echo "🔨 Creating bucket gs://$BUCKET_NAME..."
-if $GSUTIL mb -l us-central1 gs://$BUCKET_NAME; then
+if $GSUTIL mb -l europe-southwest1 gs://$BUCKET_NAME; then
     echo "✅ Bucket created."
 else
     echo "⚠️  Bucket creation failed (it might already exist). Proceeding with deployment..."

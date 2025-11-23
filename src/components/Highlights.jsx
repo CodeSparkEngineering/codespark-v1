@@ -3,8 +3,10 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import OpportunityBrain from "./OpportunityBrain";
 import ThreeDBackground from "./ThreeDBackground";
+import { useTranslation } from 'react-i18next';
 
 const Highlights = () => {
+    const { t } = useTranslation();
     const isMobile = useMediaQuery({ query: '(max-width: 1024px)' });
 
     useGSAP(() => {
@@ -22,8 +24,8 @@ const Highlights = () => {
 
     return (
         <section id="highlights" className="relative">
-            <h2>Explore our services.</h2>
-            <h3>Interactive neural network of CodeSpark Engineering capabilities.</h3>
+            <h2>{t('highlights.title')}</h2>
+            <h3>{t('highlights.subtitle')}</h3>
 
             <div className="brain-container opacity-0 translate-y-5 mt-20">
                 <div className="max-w-5xl mx-auto rounded-3xl overflow-hidden border border-blue-900/30" style={{ height: '600px', position: 'relative' }}>

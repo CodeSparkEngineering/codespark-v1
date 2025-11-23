@@ -1,0 +1,67 @@
+{
+    "nav": {
+        "services": "Servicios",
+        "projects": "Proyectos",
+        "about": "Acerca de",
+        "contact": "Contacto"
+    },
+    "hero": {
+        "title": "CodeSpark Engineering",
+        "subtitle": "Construido para la Excelencia en Ingeniería.",
+        "cta": "Contáctenos",
+        "tagline": "Construyendo el futuro del software."
+    },
+    "codeTerminal": {
+        "title": "Nuestros Servicios",
+        "subtitle": "Soluciones de vanguardia impulsadas por tecnología moderna",
+        "services": {
+            "gcloud": "> Inicializando Google Cloud Services...",
+            "websites": "> Desplegando Sitios Web Escalables...",
+            "architecture": "> Optimizando Arquitectura de Sistemas...",
+            "ai": "> Entrenando Modelos de IA...",
+            "ready": "> CodeSpark Engineering Listo."
+        }
+    },
+    "features": {
+        "title": "Experimenta la diferencia.",
+        "loading": "Cargando..."
+    },
+    "footer": {
+        "tagline": "Excelencia en ingeniería digital.",
+        "contactPrefix": "¿Listo para comenzar tu proyecto? Contáctanos en",
+        "contactOr": "o vía",
+        "whatsapp": "WhatsApp",
+        "copyright": "Copyright © 2025 CodeSpark Engineering. Todos los derechos reservados.",
+        "founder": "Fundador: Israel Vieira"
+    },
+    "highlights": {
+        "title": "Explora nuestros servicios.",
+        "subtitle": "Red neuronal interactiva de las capacidades de CodeSpark Engineering."
+    },
+    "showcase": {
+        "heading": "Soluciones Innovadoras",
+        "intro": "Presentando",
+        "company": "CodeSpark Engineering",
+        "weBuild": ". Construimos",
+        "description1": "Soluciones de software escalables y de alto rendimiento adaptadas a las necesidades de su negocio. Desde arquitectura en la nube hasta integración de IA, entregamos excelencia.",
+        "description2": "Nuestro equipo de ingenieros expertos garantiza que cada línea de código contribuya a un sistema robusto, seguro y eficiente que impulsa su éxito.",
+        "learnMore": "Más información sobre nuestros servicios",
+        "metric1Label": "Hasta",
+        "metric1Value": "10x más rápido",
+        "metric1Description": "ciclos de desarrollo con nuestro proceso ágil",
+        "metric2Label": "Garantizado",
+        "metric2Value": "99.9% de uptime",
+        "metric2Description": "para sus aplicaciones críticas"
+    },
+    "quiz": {
+        "aiName": "Asistente IA CodeSpark",
+        "welcome": "¡Hola! Soy el Asistente IA de CodeSpark. Te ayudaré a descubrir las mejores soluciones tecnológicas para tu negocio. Comencemos con algunas preguntas para entender tus necesidades.",
+        "typing": "IA está escribiendo...",
+        "bookingTitle": "Reserva Tu Consulta Gratuita",
+        "bookingSubmit": "Programar Consulta",
+        "bookingSuccess": "¡Excelente! Hemos recibido tus datos. Un ingeniero de CodeSpark se pondrá en contacto contigo pronto vía WhatsApp o email.",
+        "placeholderName": "Tu Nombre",
+        "placeholderEmail": "Tu Email",
+        "placeholderMessage": "Cuéntanos sobre tu proyecto..."
+    }
+}

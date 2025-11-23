@@ -2,17 +2,19 @@ import React, { useRef } from 'react';
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import BlockchainBackground from './BlockchainBackground.jsx';
+import { useTranslation } from 'react-i18next';
 
 const CodeTerminal = () => {
+    const { t } = useTranslation();
     const containerRef = useRef();
     const linesRef = useRef([]);
 
     const services = [
-        { text: "> Initializing Google Cloud Services...", color: "text-green-400" },
-        { text: "> Deploying Scalable Websites...", color: "text-blue-400" },
-        { text: "> Optimizing System Architecture...", color: "text-purple-400" },
-        { text: "> Training AI Models...", color: "text-yellow-400" },
-        { text: "> CodeSpark Engineering Ready.", color: "text-white" }
+        { text: t('codeTerminal.services.gcloud'), color: "text-green-400" },
+        { text: t('codeTerminal.services.websites'), color: "text-blue-400" },
+        { text: t('codeTerminal.services.architecture'), color: "text-purple-400" },
+        { text: t('codeTerminal.services.ai'), color: "text-yellow-400" },
+        { text: t('codeTerminal.services.ready'), color: "text-white" }
     ];
 
     useGSAP(() => {
@@ -47,17 +49,17 @@ const CodeTerminal = () => {
     }, { scope: containerRef });
 
     return (
-        <section id="code-terminal" className="common-padding bg-zinc pt-32 pb-8 relative overflow-hidden">
+        <section id="code-terminal" className="common-padding bg-zinc-900 pt-32 pb-8 relative overflow-hidden mt-40">
             {/* Blockchain Background */}
             <BlockchainBackground />
 
             <div className="screen-max-width relative z-10">
                 <div className="mb-12 w-full flex flex-col items-center">
                     <h1 id="features_title" className="section-heading text-center">
-                        Our Services
+                        {t('codeTerminal.title')}
                     </h1>
-                    <p className="text-gray text-center max-w-2xl mt-5">
-                        Cutting-edge solutions powered by modern technology
+                    <p className="text-gray-500 text-center max-w-2xl mt-5">
+                        {t('codeTerminal.subtitle')}
                     </p>
                 </div>
 

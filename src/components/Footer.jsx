@@ -1,6 +1,9 @@
 import { footerLinks, socialMedia } from "../constants/index.js";
+import { useTranslation } from 'react-i18next';
 
 const Footer = () => {
+    const { t } = useTranslation();
+
     return (
         <footer id="contact" className="py-10 sm:px-10 px-5">
             <div className="screen-max-width">
@@ -8,13 +11,13 @@ const Footer = () => {
                     <div className="flex flex-col gap-4 items-center md:items-start">
                         <div className="flex items-center gap-2">
                             <img src="./lightning.svg" alt="CodeSpark logo" width={24} height={24} />
-                            <h3 className="text-xl font-bold text-white">CodeSpark Engineering</h3>
+                            <h3 className="text-xl font-bold text-white">{t('hero.title')}</h3>
                         </div>
                         <p className="text-gray text-sm font-semibold text-center md:text-left max-w-xs">
-                            Digital engineering excellence.
+                            {t('footer.tagline')}
                         </p>
                         <p className="text-gray text-xs">
-                            Ready to start your project? Contact us at <a href="mailto:codespark.dev@proton.me" className="text-blue hover:underline">codespark.dev@proton.me</a> or via <a href="https://wa.me/message/D4VY7QSTGWJXO1" target="_blank" rel="noopener noreferrer" className="text-green-500 hover:underline">WhatsApp</a>
+                            {t('footer.contactPrefix')} <a href="mailto:codespark.dev@proton.me" className="text-blue hover:underline">codespark.dev@proton.me</a> {t('footer.contactOr')} <a href="https://wa.me/message/D4VY7QSTGWJXO1" target="_blank" rel="noopener noreferrer" className="text-green-500 hover:underline">{t('footer.whatsapp')}</a>
                         </p>
                     </div>
 
@@ -57,8 +60,8 @@ const Footer = () => {
 
                 <div className="flex md:flex-row flex-col md:items-center justify-between">
                     <p className="font-semibold text-gray text-xs text-center md:text-left">
-                        Copyright © 2025 CodeSpark Engineering. All rights reserved. <br />
-                        <span className="text-gray-500">Founder: Israel Vieira</span>
+                        {t('footer.copyright')} <br />
+                        <span className="text-gray-500">{t('footer.founder')}</span>
                     </p>
                 </div>
             </div>

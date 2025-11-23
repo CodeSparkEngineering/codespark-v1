@@ -1,16 +1,18 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const ClientQuiz = () => {
+    const { t } = useTranslation();
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [answers, setAnswers] = useState({});
     const [history, setHistory] = useState([
-        { type: 'ai', text: "Hello! I'm CodeSpark AI Assistant. I'll help you discover the best technology solutions for your business. Let's start with a few questions to understand your needs." }
+        { type: 'ai', text: t('quiz.welcome') }
     ]);
     const [showBooking, setShowBooking] = useState(false);
     const [bookingData, setBookingData] = useState({ name: '', email: '', message: '' });
     const [isTyping, setIsTyping] = useState(false);
     const [formSubmitted, setFormSubmitted] = useState(false);
-    const messagesEndRef = useRef(null);
+    const chatContainerRef = useRef(null);
 
     const questions = [
         {
@@ -168,7 +170,9 @@ const ClientQuiz = () => {
     };
 
     const scrollToBottom = () => {
-        messagesEndRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        if (chatContainerRef.current) {
+            chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
+        }
     };
 
     useEffect(() => {
@@ -207,7 +211,7 @@ const ClientQuiz = () => {
     const handleFormSubmit = (e) => {
         e.preventDefault();
         setFormSubmitted(true);
-        setHistory(prev => [...prev, { type: 'ai', text: "Excellent! We've received your details. A CodeSpark engineer will contact you shortly via WhatsApp or email." }]);
+        setHistory(prev => [...prev, { type: 'ai', text: t('quiz.bookingSuccess') }]);
     };
 
     const renderMessage = (msg) => {
@@ -241,11 +245,11 @@ const ClientQuiz = () => {
                 <div className="w-3 h-3 rounded-full bg-red-500"></div>
                 <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
                 <div className="w-3 h-3 rounded-full bg-green-500"></div>
-                <span className="ml-4 text-sm text-gray-400 font-mono">CodeSpark AI Assistant</span>
+                <span className="ml-4 text-sm text-gray-400 font-mono">{t('quiz.aiName')}</span>
             </div>
 
             {/* Chat Area */}
-            <div className="flex-1 p-6 overflow-y-auto flex flex-col gap-4 scrollbar-hide">
+            <div ref={chatContainerRef} className="flex-1 p-6 overflow-y-auto flex flex-col gap-4 scrollbar-hide">
                 {history.map((msg, index) => (
                     <div key={index} className={`flex ${msg.type === 'user' ? 'justify-end' : 'justify-start'}`}>
                         <div className={`max-w-[80%] p-4 rounded-2xl text-sm md:text-base ${msg.type === 'user'
@@ -270,11 +274,11 @@ const ClientQuiz = () => {
                 {/* Booking Form */}
                 {showBooking && !formSubmitted && (
                     <div className="bg-white/10 p-6 rounded-2xl border border-white/20">
-                        <h3 className="text-lg font-bold text-white mb-4">Book Your Free Consultation</h3>
+                        <h3 className="text-lg font-bold text-white mb-4">{t('quiz.bookingTitle')}</h3>
                         <form onSubmit={handleFormSubmit} className="space-y-3">
                             <input
                                 type="text"
-                                placeholder="Your Name"
+                                placeholder={t('quiz.placeholderName')}
                                 required
                                 value={bookingData.name}
                                 onChange={(e) => setBookingData({ ...bookingData, name: e.target.value })}
@@ -282,14 +286,14 @@ const ClientQuiz = () => {
                             />
                             <input
                                 type="email"
-                                placeholder="Your Email"
+                                placeholder={t('quiz.placeholderEmail')}
                                 required
                                 value={bookingData.email}
                                 onChange={(e) => setBookingData({ ...bookingData, email: e.target.value })}
                                 className="w-full px-4 py-2 bg-black/40 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500"
                             />
                             <textarea
-                                placeholder="Tell us about your project..."
+                                placeholder={t('quiz.placeholderMessage')}
                                 rows="3"
                                 value={bookingData.message}
                                 onChange={(e) => setBookingData({ ...bookingData, message: e.target.value })}
@@ -299,13 +303,13 @@ const ClientQuiz = () => {
                                 type="submit"
                                 className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg transition-colors"
                             >
-                                Schedule Consultation
+                                {t('quiz.bookingSubmit')}
                             </button>
                         </form>
                     </div>
                 )}
 
-                <div ref={messagesEndRef} />
+
             </div>
 
             {/* Options */}

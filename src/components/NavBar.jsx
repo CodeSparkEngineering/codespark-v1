@@ -1,20 +1,26 @@
 import { navLinks } from "../constants";
+import { useTranslation } from 'react-i18next';
+import LanguageSwitcher from './LanguageSwitcher.jsx';
 
 const NavBar = () => {
-    const scrollToSection = (nav) => {
+    const { t } = useTranslation();
+
+    const scrollToSection = (navKey) => {
         const sectionMap = {
-            'Services': 'code-terminal',
-            'Projects': 'features',
-            'About': 'highlights',
-            'Contact': 'contact'
+            'services': 'code-terminal',
+            'projects': 'features',
+            'about': 'highlights',
+            'contact': 'contact'
         };
 
-        const sectionId = sectionMap[nav];
+        const sectionId = sectionMap[navKey];
         const element = document.getElementById(sectionId);
         if (element) {
             element.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
     };
+
+    const navItems = ['services', 'projects', 'about', 'contact'];
 
     return (
         <header className="w-full py-5 sm:px-10 px-5 flex justify-between items-center">
@@ -25,16 +31,18 @@ const NavBar = () => {
                 </div>
 
                 <div className="flex flex-1 justify-center max-sm:hidden">
-                    {['Services', 'Projects', 'About', 'Contact'].map((nav) => (
+                    {navItems.map((navKey) => (
                         <button
-                            key={nav}
-                            onClick={() => scrollToSection(nav)}
+                            key={navKey}
+                            onClick={() => scrollToSection(navKey)}
                             className="px-5 text-sm cursor-pointer text-gray hover:text-white transition-all"
                         >
-                            {nav}
+                            {t(`nav.${navKey}`)}
                         </button>
                     ))}
                 </div>
+
+                <LanguageSwitcher />
             </nav>
         </header>
     )

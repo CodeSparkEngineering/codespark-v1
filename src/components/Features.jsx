@@ -10,8 +10,10 @@ import useMacbookStore from "../store/index.js";
 import { useGSAP } from "@gsap/react";
 import gsap from 'gsap';
 import ClientQuiz from "./ClientQuiz.jsx";
+import { useTranslation } from 'react-i18next';
 
 const ModelScroll = () => {
+    const { t } = useTranslation();
     const groupRef = useRef(null);
     const isMobile = useMediaQuery({ query: '(max-width: 1024px)' })
     const { setTexture } = useMacbookStore();
@@ -80,7 +82,7 @@ const ModelScroll = () => {
 
     return (
         <group ref={groupRef}>
-            <Suspense fallback={<Html><h1 className="text-white text-3xl uppercase">Loading...</h1></Html>}>
+            <Suspense fallback={<Html><h1 className="text-white text-3xl uppercase">{t('features.loading')}</h1></Html>}>
                 <MacbookModel scale={isMobile ? 0.05 : 0.08} position={[0, -1, 0]} />
             </Suspense>
         </group>
@@ -88,11 +90,13 @@ const ModelScroll = () => {
 }
 
 const Features = () => {
+    const { t } = useTranslation();
+
     return (
         <section id="features" className="relative">
             <div className="container mx-auto px-5 py-20">
                 <h2 className="text-white font-semibold text-3xl lg:text-7xl text-center max-w-3xl mx-auto mb-20">
-                    Experience the difference.
+                    {t('features.title')}
                 </h2>
 
                 <div className="relative min-h-[60vh] flex items-center justify-center">
