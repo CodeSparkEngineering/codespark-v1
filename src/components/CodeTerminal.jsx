@@ -49,7 +49,7 @@ const CodeTerminal = () => {
     }, { scope: containerRef });
 
     return (
-        <section id="code-terminal" className="common-padding bg-zinc-900 pt-32 pb-8 relative overflow-hidden mt-40">
+        <section id="code-terminal" className="common-padding bg-zinc-900 section-spacing relative overflow-hidden">
             {/* Blockchain Background */}
             <BlockchainBackground />
 

@@ -3,8 +3,10 @@ import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { performanceImages, performanceImgPositions } from "../constants/index.js";
 import { useMediaQuery } from "react-responsive";
+import { useTranslation } from 'react-i18next';
 
 const Performance = () => {
+    const { t } = useTranslation();
     const isMobile = useMediaQuery({ query: "(max-width: 1024px)" });
     const sectionRef = useRef(null);
 
@@ -65,8 +67,8 @@ const Performance = () => {
     );
 
     return (
-        <section id="performance" ref={sectionRef} className="bg-black z-10 relative">
-            <h2>Next-level system performance.</h2>
+        <section id="performance" ref={sectionRef} className="w-dvw h-full overflow-hidden section-spacing flex flex-col items-center relative bg-black z-10">
+            <h2>{t('performance.title')}</h2>
 
             <div className="wrapper">
                 {performanceImages.map((item, index) => (
@@ -82,16 +84,11 @@ const Performance = () => {
             <div className="content">
                 <div className="content">
                     <p>
-                        Deploy complex systems with a reliability that keeps up
-                        with your business demands. Our engineering team builds architectures with
-                        advanced scalability and security that processes
-                        data faster, so{" "}
+                        {t('performance.textPart1')}
                         <span className="text-white">
-                            your applications feel more responsive and robust than ever.
+                            {t('performance.textHighlight')}
                         </span>{" "}
-                        And our optimized codebases utilize resources efficiently to dramatically
-                        increase performance — driving a huge competitive advantage
-                        for your most critical operations.
+                        {t('performance.textPart2')}
                     </p>
                 </div>
             </div>

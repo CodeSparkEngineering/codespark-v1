@@ -10,6 +10,7 @@ import Footer from "./components/Footer.jsx";
 import MatrixBackground from "./components/MatrixBackground.jsx";
 import CodeTerminal from "./components/CodeTerminal.jsx";
 import ClientQuiz from "./components/ClientQuiz.jsx";
+import WhatsAppWidget from "./components/WhatsAppWidget.jsx";
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -25,6 +26,7 @@ const App = () => {
             <Features />
             <Highlights />
             <Footer />
+            <WhatsAppWidget />
         </main>
     )
 }

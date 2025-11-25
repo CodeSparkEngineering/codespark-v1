@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
+import { db } from '../firebaseConfig';
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 
 const ClientQuiz = () => {
     const { t, i18n } = useTranslation();
@@ -15,7 +17,7 @@ const ClientQuiz = () => {
         { type: 'ai', text: t('quiz.welcome') }
     ]);
     const [showBooking, setShowBooking] = useState(false);
-    const [bookingData, setBookingData] = useState({ name: '', email: '', message: '' });
+    const [bookingData, setBookingData] = useState({ name: '', email: '', whatsapp: '', message: '' });
     const [isTyping, setIsTyping] = useState(false);
     const [formSubmitted, setFormSubmitted] = useState(false);
     const chatContainerRef = useRef(null);
@@ -184,10 +186,25 @@ const ClientQuiz = () => {
         setCurrentQuestion(prev => prev + 1);
     };
 
-    const handleFormSubmit = (e) => {
+    const handleFormSubmit = async (e) => {
         e.preventDefault();
-        setFormSubmitted(true);
-        setHistory(prev => [...prev, { type: 'ai', text: t('quiz.bookingSuccess') }]);
+
+        try {
+            // Save to Firestore
+            await addDoc(collection(db, "leads"), {
+                ...bookingData,
+                answers: answers,
+                timestamp: serverTimestamp(),
+                language: i18n.language
+            });
+
+            setFormSubmitted(true);
+            setHistory(prev => [...prev, { type: 'ai', text: t('quiz.bookingSuccess') }]);
+        } catch (error) {
+            console.error("Error adding document: ", error);
+            // Optional: Show error message to user
+            setHistory(prev => [...prev, { type: 'ai', text: "Error saving your request. Please try again." }]);
+        }
     };
 
     const renderMessage = (msg) => {
@@ -266,6 +283,14 @@ const ClientQuiz = () => {
                                 required
                                 value={bookingData.email}
                                 onChange={(e) => setBookingData({ ...bookingData, email: e.target.value })}
+                                className="w-full px-4 py-2 bg-black/40 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500"
+                            />
+                            <input
+                                type="tel"
+                                placeholder={t('quiz.placeholderWhatsapp')}
+                                required
+                                value={bookingData.whatsapp}
+                                onChange={(e) => setBookingData({ ...bookingData, whatsapp: e.target.value })}
                                 className="w-full px-4 py-2 bg-black/40 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500"
                             />
                             <textarea

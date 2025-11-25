@@ -27,7 +27,7 @@ const Showcase = () => {
     }, [isTablet])
 
     return (
-        <section id="showcase" className="w-screen overflow-hidden h-full common-padding bg-zinc pt-8">
+        <section id="showcase" className="w-screen overflow-hidden h-full common-padding bg-zinc section-spacing">
             <div className="media">
                 <video src="./videos/game.mp4" loop muted autoPlay playsInline />
                 <div className="mask">

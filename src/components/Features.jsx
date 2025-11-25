@@ -106,10 +106,10 @@ const Features = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-20">
                     {features.map((feature, index) => (
                         <div key={feature.id} className="bg-neutral-900/50 p-8 rounded-2xl border border-white/10 backdrop-blur-sm">
-                            <img src={feature.icon} alt={feature.highlight} className="w-10 h-10 mb-5" />
+                            <img src={feature.icon} alt={t(`featuresList.${index}.highlight`)} className="w-10 h-10 mb-5" />
                             <p className="text-gray-400">
-                                <span className="text-white block text-xl font-semibold mb-2">{feature.highlight}</span>
-                                {feature.text}
+                                <span className="text-white block text-xl font-semibold mb-2">{t(`featuresList.${index}.highlight`)}</span>
+                                {t(`featuresList.${index}.text`)}
                             </p>
                         </div>
                     ))}

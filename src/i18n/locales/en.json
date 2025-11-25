@@ -26,6 +26,34 @@
         "title": "Experience the difference.",
         "loading": "Loading..."
     },
+    "featuresList": [
+        {
+            "highlight": "Scalable Architecture.",
+            "text": "Building robust systems that grow with your business, ensuring high availability and performance."
+        },
+        {
+            "highlight": "AI Integration.",
+            "text": "Leveraging cutting-edge AI models to automate tasks and provide intelligent insights."
+        },
+        {
+            "highlight": "Modern UI/UX.",
+            "text": "Crafting intuitive and visually stunning interfaces that engage users and drive conversions."
+        },
+        {
+            "highlight": "Cloud Solutions.",
+            "text": "Seamless cloud migration and management for optimal flexibility and cost-efficiency."
+        },
+        {
+            "highlight": "Custom Software.",
+            "text": "Tailored software solutions designed to meet your specific business needs and challenges."
+        }
+    ],
+    "performance": {
+        "title": "Next-level system performance.",
+        "textPart1": "Deploy complex systems with a reliability that keeps up with your business demands. Our engineering team builds architectures with advanced scalability and security that processes data faster, so ",
+        "textHighlight": "your applications feel more responsive and robust than ever.",
+        "textPart2": " And our optimized codebases utilize resources efficiently to dramatically increase performance — driving a huge competitive advantage for your most critical operations."
+    },
     "footer": {
         "tagline": "Digital engineering excellence.",
         "contactPrefix": "Ready to start your project? Contact us at",
@@ -62,6 +90,7 @@
         "bookingSuccess": "Excellent! We've received your details. A CodeSpark engineer will contact you shortly via WhatsApp or email.",
         "placeholderName": "Your Name",
         "placeholderEmail": "Your Email",
+        "placeholderWhatsapp": "Your WhatsApp (with country code)",
         "placeholderMessage": "Tell us about your project...",
         "questions": [
             {
@@ -216,5 +245,9 @@
                 "cta": "Ready to transform your business? Book your free consultation below!"
             }
         }
+    },
+    "whatsapp": {
+        "defaultMessage": "Hello! I would like to know more about CodeSpark Engineering services.",
+        "tooltip": "Chat with us on WhatsApp"
     }
 }

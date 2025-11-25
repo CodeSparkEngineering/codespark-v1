@@ -26,6 +26,34 @@
         "title": "Experimente a diferença.",
         "loading": "Carregando..."
     },
+    "featuresList": [
+        {
+            "highlight": "Arquitetura Escalável.",
+            "text": "Construindo sistemas robustos que crescem com o seu negócio, garantindo alta disponibilidade e desempenho."
+        },
+        {
+            "highlight": "Integração de IA.",
+            "text": "Aproveitando modelos de IA de ponta para automatizar tarefas e fornecer insights inteligentes."
+        },
+        {
+            "highlight": "UI/UX Moderno.",
+            "text": "Criando interfaces intuitivas e visualmente deslumbrantes que engajam usuários e impulsionam conversões."
+        },
+        {
+            "highlight": "Soluções em Nuvem.",
+            "text": "Migração e gerenciamento de nuvem perfeitos para flexibilidade e custo-benefício ideais."
+        },
+        {
+            "highlight": "Software Personalizado.",
+            "text": "Soluções de software sob medida projetadas para atender às suas necessidades e desafios de negócios específicos."
+        }
+    ],
+    "performance": {
+        "title": "Desempenho de sistema de próximo nível.",
+        "textPart1": "Implante sistemas complexos com uma confiabilidade que acompanha as demandas do seu negócio. Nossa equipe de engenharia constrói arquiteturas com escalabilidade avançada e segurança que processam dados mais rapidamente, para que ",
+        "textHighlight": "suas aplicações pareçam mais responsivas e robustas do que nunca.",
+        "textPart2": " E nossas bases de código otimizadas utilizam recursos de forma eficiente para aumentar drasticamente o desempenho — impulsionando uma enorme vantagem competitiva para suas operações mais críticas."
+    },
     "footer": {
         "tagline": "Excelência em engenharia digital.",
         "contactPrefix": "Pronto para começar seu projeto? Entre em contato pelo",
@@ -62,6 +90,7 @@
         "bookingSuccess": "Excelente! Recebemos seus dados. Um engenheiro da CodeSpark entrará em contato em breve via WhatsApp ou email.",
         "placeholderName": "Seu Nome",
         "placeholderEmail": "Seu Email",
+        "placeholderWhatsapp": "Seu WhatsApp (com código do país)",
         "placeholderMessage": "Conte-nos sobre seu projeto...",
         "questions": [
             {
@@ -216,5 +245,9 @@
                 "cta": "Pronto para transformar seu negócio? Agende sua consulta gratuita abaixo!"
             }
         }
+    },
+    "whatsapp": {
+        "defaultMessage": "Olá! Gostaria de saber mais sobre os serviços da CodeSpark Engineering.",
+        "tooltip": "Fale conosco no WhatsApp"
     }
 }

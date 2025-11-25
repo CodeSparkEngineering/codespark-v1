@@ -26,6 +26,34 @@
         "title": "Experimenta la diferencia.",
         "loading": "Cargando..."
     },
+    "featuresList": [
+        {
+            "highlight": "Arquitectura Escalable.",
+            "text": "Construyendo sistemas robustos que crecen con su negocio, asegurando alta disponibilidad y rendimiento."
+        },
+        {
+            "highlight": "Integración de IA.",
+            "text": "Aprovechando modelos de IA de vanguardia para automatizar tareas y proporcionar información inteligente."
+        },
+        {
+            "highlight": "UI/UX Moderno.",
+            "text": "Creando interfaces intuitivas y visualmente impresionantes que atraen a los usuarios e impulsan las conversiones."
+        },
+        {
+            "highlight": "Soluciones en la Nube.",
+            "text": "Migración y gestión de la nube sin problemas para una flexibilidad y rentabilidad óptimas."
+        },
+        {
+            "highlight": "Software Personalizado.",
+            "text": "Soluciones de software a medida diseñadas para satisfacer sus necesidades y desafíos comerciales específicos."
+        }
+    ],
+    "performance": {
+        "title": "Rendimiento del sistema de siguiente nivel.",
+        "textPart1": "Implemente sistemas complejos con una confiabilidad que se mantiene al día con las demandas de su negocio. Nuestro equipo de ingeniería construye arquitecturas con escalabilidad avanzada y seguridad que procesan datos más rápido, para que ",
+        "textHighlight": "sus aplicaciones se sientan más receptivas y robustas que nunca.",
+        "textPart2": " Y nuestras bases de código optimizadas utilizan los recursos de manera eficiente para aumentar drásticamente el rendimiento, impulsando una gran ventaja competitiva para sus operaciones más críticas."
+    },
     "footer": {
         "tagline": "Excelencia en ingeniería digital.",
         "contactPrefix": "¿Listo para comenzar tu proyecto? Contáctanos en",
@@ -62,6 +90,7 @@
         "bookingSuccess": "¡Excelente! Hemos recibido tus datos. Un ingeniero de CodeSpark se pondrá en contacto contigo pronto vía WhatsApp o email.",
         "placeholderName": "Tu Nombre",
         "placeholderEmail": "Tu Email",
+        "placeholderWhatsapp": "Tu WhatsApp (con código de país)",
         "placeholderMessage": "Cuéntanos sobre tu proyecto...",
         "questions": [
             {
@@ -216,5 +245,9 @@
                 "cta": "¿Listo para transformar su negocio? ¡Reserve su consulta gratuita a continuación!"
             }
         }
+    },
+    "whatsapp": {
+        "defaultMessage": "¡Hola! Me gustaría saber más sobre los servicios de CodeSpark Engineering.",
+        "tooltip": "Chatea con nosotros en WhatsApp"
     }
 }
